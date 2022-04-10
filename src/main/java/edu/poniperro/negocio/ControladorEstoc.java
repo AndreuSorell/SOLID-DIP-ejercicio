@@ -1,12 +1,12 @@
 package edu.poniperro.negocio;
 
-import edu.poniperro.bbdd.InventarioBBDD;
+import edu.poniperro.bbdd.Inventario;
 
-public class ControladorEstoc {
+public class ControladorEstoc implements Controlador {
 
-	private final InventarioBBDD inventario;
+	private final Inventario inventario;
 	
-	public ControladorEstoc(InventarioBBDD inventario) {
+	public ControladorEstoc(Inventario inventario) {
 		this.inventario = inventario;
 	}
 
@@ -17,6 +17,8 @@ public class ControladorEstoc {
 	 * p.e: necesitamos al menos 400 mesas (mesa : 4 letras) y
 	 *    al menos 700 lamparas (lampara: 7 letras)
 	 */
+
+    @Override
 	public boolean necesitaReponer (String tienda, String producto) {
 		int cantidadActual = inventario.numeroProductos(tienda, producto);
 		
